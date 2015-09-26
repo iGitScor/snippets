@@ -1,10 +1,11 @@
-(function() {
+(function (document) {
   'use strict';
   // Old browser compatibility
   if (typeof Array.prototype.forEach != 'function') {
     Array.prototype.forEach = function (callback){
-      for (var i = 0; i < this.length; i++){
-        callback.apply(this, [this[i], i, this]);
+      var iterator;
+      for (iterator = 0; iterator < this.length; iterator++){
+        callback.apply(this, [this[iterator], iterator, this]);
       }
     };
   }
@@ -20,4 +21,4 @@
       }
     });
   });
-}());
+}(document));
